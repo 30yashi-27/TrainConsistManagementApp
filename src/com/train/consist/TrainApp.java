@@ -6,6 +6,8 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
 import java.util.LinkedHashSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TrainApp {
 
@@ -23,23 +25,13 @@ public class TrainApp {
         passengerBogies.add("AC Chair");
         passengerBogies.add("First Class");
 
-        System.out.println("\nPassenger Bogies:");
-        System.out.println(passengerBogies);
-
         passengerBogies.remove("AC Chair");
-
-        if (passengerBogies.contains("Sleeper")) {
-            System.out.println("Sleeper exists");
-        }
 
         // UC3
         Set<String> bogieIds = new HashSet<>();
         bogieIds.add("BG101");
         bogieIds.add("BG102");
         bogieIds.add("BG101");
-
-        System.out.println("\nUnique Bogie IDs:");
-        System.out.println(bogieIds);
 
         // UC4
         LinkedList<String> train = new LinkedList<>();
@@ -48,14 +40,9 @@ public class TrainApp {
         train.add("AC");
         train.add("Cargo");
         train.add("Guard");
-
         train.add(2, "Pantry");
-
         train.removeFirst();
         train.removeLast();
-
-        System.out.println("\nTrain Consist:");
-        System.out.println(train);
 
         // UC5
         Set<String> formation = new LinkedHashSet<>();
@@ -65,7 +52,21 @@ public class TrainApp {
         formation.add("Guard");
         formation.add("Sleeper"); // duplicate
 
-        System.out.println("\nTrain Formation (LinkedHashSet):");
+        System.out.println("\nTrain Formation:");
         System.out.println(formation);
+
+        // UC6
+        Map<String, Integer> bogieCapacity = new HashMap<>();
+
+        bogieCapacity.put("Sleeper", 72);
+        bogieCapacity.put("AC Chair", 60);
+        bogieCapacity.put("First Class", 40);
+
+        System.out.println("\nBogie Capacity Details:");
+
+        for (Map.Entry<String, Integer> entry : bogieCapacity.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() +
+                    ", Capacity: " + entry.getValue());
+        }
     }
 }
