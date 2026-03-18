@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.LinkedList;
 
 public class TrainApp {
 
@@ -34,9 +35,31 @@ public class TrainApp {
         Set<String> bogieIds = new HashSet<>();
         bogieIds.add("BG101");
         bogieIds.add("BG102");
-        bogieIds.add("BG101"); // duplicate
+        bogieIds.add("BG101");
 
         System.out.println("\nUnique Bogie IDs:");
         System.out.println(bogieIds);
+
+        // UC4
+        LinkedList<String> train = new LinkedList<>();
+        train.add("Engine");
+        train.add("Sleeper");
+        train.add("AC");
+        train.add("Cargo");
+        train.add("Guard");
+
+        System.out.println("\nInitial Train Consist:");
+        System.out.println(train);
+
+        train.add(2, "Pantry");
+
+        System.out.println("\nAfter adding Pantry:");
+        System.out.println(train);
+
+        train.removeFirst();
+        train.removeLast();
+
+        System.out.println("\nFinal Train Consist:");
+        System.out.println(train);
     }
 }
